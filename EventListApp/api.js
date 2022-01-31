@@ -23,7 +23,6 @@ const deleteEvents = (id) =>
       Accept: "application/json",
     },
   }).then((response) => response.json())
-    .then((json) => console.log(json));
 
 const updateEvent = (id, event) => {
   fetch([baseurl, path, id].join("/"), {

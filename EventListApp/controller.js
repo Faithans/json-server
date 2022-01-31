@@ -31,7 +31,20 @@ const addEventsfunc = () => {
 
 }
 
-//
+const addDeleteFunc = () => {
+  const ele = document.querySelector('#table-body');
+  console.log(ele);
+  ele.addEventListener("click", (e) => {
+    console.log(e.target.getAttribute('class'))
+    if(e.target.getAttribute('class') === 'delete') {
+    state.datalog = state.datalog.filter((event) => {
+      return +event.id !== +e.target.id.split('')[(e.target.id.length) - 1] ;
+    });
+    deleteEvents(e.target.id.split('')[(e.target.id.length) - 1]);
+  }
+  })
+}
+
 
 const init = () => {
   getEvents().then((data) => {
@@ -43,7 +56,7 @@ const bootstrap = () => {
   init();
   addEventsfunc();
   // addEditFunc();
-  // addDeleteFunc();
+  addDeleteFunc();
 }
 
 export { bootstrap }
