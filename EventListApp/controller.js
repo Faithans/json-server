@@ -58,8 +58,8 @@ const addEditFunc = () => {
 
 
       currentEventTd.innerHTML = `<input type='text' id='event_text${id}'>`;
-      currentStartTd.innerHTML = `<input type='text' id='startdate_text${id}'>`;
-      currentEndTd.innerHTML = `<input type='text' id='enddate_text${id}'>`;
+      currentStartTd.innerHTML = `<input type='date' id='startdate_text${id}'>`;
+      currentEndTd.innerHTML = `<input type='date' id='enddate_text${id}'>`;
       e.target.style.display = 'none';
       document.querySelector(`#save_button${id}`).style.display = 'block';
 
