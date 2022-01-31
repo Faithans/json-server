@@ -26,24 +26,45 @@ const createTmp = arr => {
     `
   })
 
-  tmp += `
-  <tr id="row_add">
-  <td id="event_row_add">
-    <input type='text' id="event_row_add_input" value='' >
-  </td>
-  <td id="startdate_row_add">
-    <input type='text' id="startdate_row_add_input" value='' >
-  </td>
-  <td id="enddate_row_add">
-    <input type='text' id="enddate_row_add_input" value='' >
-  </td>
-</tr>
-  `
+//   tmp += `
+//   <tr id="row_add">
+//   <td id="event_row_add">
+//     <input type='text' id="event_row_add_input" value='' >
+//   </td>
+//   <td id="startdate_row_add">
+//     <input type='text' id="startdate_row_add_input" value='' >
+//   </td>
+//   <td id="enddate_row_add">
+//     <input type='text' id="enddate_row_add_input" value='' >
+//   </td>
+// </tr>
+//   `
 
   return tmp;
 }
 
+
+const createNewRow = () => {
+  let tmp = '';
+  tmp += `
+
+  <td id="event_row_add">
+    <input type='text' id="event_row_add_input"  >
+  </td>
+  <td id="startdate_row_add">
+    <input type='text' id="startdate_row_add_input"  >
+  </td>
+  <td id="enddate_row_add">
+    <input type='text' id="enddate_row_add_input"  >
+  </td>
+  <td>
+  <input type="button" id="save_button_add" value="Save" class="save_add">
+</td>
+  `
+  return tmp
+}
 export {
   render,
-  createTmp
+  createTmp,
+  createNewRow
 }
