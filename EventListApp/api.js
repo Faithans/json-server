@@ -24,7 +24,7 @@ const deleteEvents = (id) =>
     },
   }).then((response) => response.json())
 
-const updateEvent = (id, event) => {
+const updateEvents = (id, event) => {
   fetch([baseurl, path, id].join("/"), {
     method: "PUT",
     headers: {
@@ -41,5 +41,5 @@ export {
   getEvents,
   addEvents,
   deleteEvents,
-  updateEvent
+  updateEvents
 }
