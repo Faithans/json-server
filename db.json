@@ -1,9 +1,9 @@
 {
   "events": [
     {
-      "eventName": "ewqrqwer",
-      "startDate": "2022-01-12",
-      "endDate": "2022-01-21",
+      "eventName": "TEST-1",
+      "startDate": "1641790800000",
+      "endDate": "1641790800000",
       "id": 1
     },
     {

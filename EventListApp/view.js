@@ -53,7 +53,8 @@ const createNewRow = () => {
 
 const convertDay = (code) => {
   let newdate;
-  var dateObj = new Date();
+
+  var dateObj = new Date(+code);
   var month = dateObj.getUTCMonth() + 1; //months from 1-12
   var day = dateObj.getUTCDate();
   var year = dateObj.getUTCFullYear();
