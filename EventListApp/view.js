@@ -26,6 +26,20 @@ const createTmp = arr => {
     `
   })
 
+  tmp += `
+  <tr id="row_add">
+  <td id="event_row_add">
+    <input type='text' id="event_row_add_input" value='' >
+  </td>
+  <td id="startdate_row_add">
+    <input type='text' id="startdate_row_add_input" value='' >
+  </td>
+  <td id="enddate_row_add">
+    <input type='text' id="enddate_row_add_input" value='' >
+  </td>
+</tr>
+  `
+
   return tmp;
 }
 

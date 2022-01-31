@@ -11,8 +11,9 @@ const addEvents = (events) =>
     body: JSON.stringify(events),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
+      Accept: "application/json",
     },
-  }).then((response) => response.json()).then((json) => console.log(json));
+  }).then((response) => response.json());
 
 const deleteEvents = (id) =>
   fetch([baseurl, path, id].join("/"), {
@@ -36,7 +37,6 @@ const updateEvent = (id, event) => {
   .then((json) => console.log(json));
 }
 
-console.log(getEvents());
 
 export {
   getEvents,
