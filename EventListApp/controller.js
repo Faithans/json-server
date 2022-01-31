@@ -31,7 +31,7 @@ const addEventsfunc = () => {
 
 }
 
-
+//
 
 const init = () => {
   getEvents().then((data) => {
