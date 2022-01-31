@@ -11,10 +11,10 @@ const createTmp = arr => {
       <input type='text' id="event_row${ele.id}_input" value='${ele.eventName}' disabled=true>
     </td>
     <td id="startdate_row${ele.id}">
-      <input type='text' id="startdate_row${ele.id}_input" value='${ele.startDate}' disabled=true>
+      <input type='date' id="startdate_row${ele.id}_input" value='${ele.startDate}' disabled=true>
     </td>
     <td id="enddate_row${ele.id}">
-      <input type='text' id="enddate_row${ele.id}_input" value='${ele.endDate}' disabled=true>
+      <input type='date' id="enddate_row${ele.id}_input" value='${ele.endDate}' disabled=true>
     </td>
 
     <td>
@@ -38,10 +38,10 @@ const createNewRow = () => {
     <input type='text' id="event_row_add_input"  >
   </td>
   <td id="startdate_row_add">
-    <input type='text' id="startdate_row_add_input"  >
+    <input type='date' id="startdate_row_add_input"  >
   </td>
   <td id="enddate_row_add">
-    <input type='text' id="enddate_row_add_input"  >
+    <input type='date' id="enddate_row_add_input"  >
   </td>
   <td>
   <input type="button" id="save_button_add" value="Save" class="save_add">
@@ -49,8 +49,20 @@ const createNewRow = () => {
   `
   return tmp
 }
+
+
+const convertDay = (code) => {
+  let newdate;
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1; //months from 1-12
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+
+  return newdate = year + "-" + `0${month}` + "-" + day;
+}
 export {
   render,
   createTmp,
-  createNewRow
+  createNewRow,
+  convertDay
 }

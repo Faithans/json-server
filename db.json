@@ -1,40 +1,28 @@
 {
   "events": [
     {
-      "eventName": "TEST-1",
-      "startDate": "1641790800000",
-      "endDate": "1641790800000",
+      "eventName": "",
+      "startDate": "",
+      "endDate": "",
       "id": 1
     },
     {
-      "eventName": "qwerqrw",
-      "startDate": "eqwtqewtwt",
-      "endDate": "tqeqwetwt",
+      "eventName": "TEST-2",
+      "startDate": "1644037200000",
+      "endDate": "1644469200000",
       "id": 2
     },
     {
-      "eventName": "qwetqewt",
-      "startDate": "qwetqwet",
-      "endDate": "qwetqwetq",
+      "eventName": "TEST-3",
+      "startDate": "1641963600000",
+      "endDate": "1642309200000",
       "id": 3
     },
     {
-      "eventName": "qwetqwet",
-      "startDate": "qewtqwet",
-      "endDate": "etqwetqwet",
+      "eventName": "",
+      "startDate": "2022-01-09",
+      "endDate": "2022-01-04",
       "id": 4
-    },
-    {
-      "eventName": "new item",
-      "startDate": "new item ",
-      "endDate": "new item",
-      "id": 5
-    },
-    {
-      "eventName": "weqqeewqwq",
-      "startDate": "xxxx",
-      "endDate": "xxxx",
-      "id": 6
     }
   ]
 }
