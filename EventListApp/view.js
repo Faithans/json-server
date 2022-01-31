@@ -11,10 +11,10 @@ const createTmp = arr => {
       <input type='text' id="event_row${ele.id}_input" value='${ele.eventName}' disabled=true>
     </td>
     <td id="startdate_row${ele.id}">
-      <input type='date' id="startdate_row${ele.id}_input" value='${ele.startDate}' disabled=true>
+      <input type='text' id="startdate_row${ele.id}_input" value='${ele.startDate}' disabled=true>
     </td>
     <td id="enddate_row${ele.id}">
-      <input type='date' id="enddate_row${ele.id}_input" value='${ele.endDate}' disabled=true>
+      <input type='text' id="enddate_row${ele.id}_input" value='${ele.endDate}' disabled=true>
     </td>
 
     <td>
