@@ -59,7 +59,11 @@ const convertDay = (code) => {
   var day = dateObj.getUTCDate();
   var year = dateObj.getUTCFullYear();
 
-  return newdate = year + "-" + `0${month}` + "-" + day;
+  month = month.length < 2? '0'+month : month;
+  day = day.length < 2? '0'+day : day;
+
+  console.log(year, month, day)
+  return newdate = year + "-" + month + "-" + day;
 }
 export {
   render,

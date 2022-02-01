@@ -16,10 +16,10 @@ class State {
   }
 
   set datalog(newdata) {
-    // newdata.forEach(obj => {
-    //   obj.startDate = convertDay(obj.startDate);
-    //   obj.endDate = convertDay(obj.endDate);
-    // })
+    newdata.forEach(obj => {
+      obj.startDate = obj.startDate.length > 10? convertDay(obj.startDate) : obj.startDate;
+      obj.endDate = obj.endDate.length > 10? convertDay(obj.endDate) : obj.endDate;
+    })
     this.log = newdata;
 
     const ele = document.querySelector('#table-body');
