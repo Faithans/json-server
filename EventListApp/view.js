@@ -18,9 +18,9 @@ const createTmp = arr => {
     </td>
 
     <td>
-      <input type="button" id="edit_button${ele.id}" value="Edit" class="edit">
-      <input type="button" id="save_button${ele.id}" value="Save" class="save">
-      <input type="button" id="delete_button${ele.id}" value="Delete" class="delete">
+      <button type="button" id="edit_button${ele.id}" value="Edit" class="edit">Edit</button>
+      <button type="button" id="save_button${ele.id}" value="Save" class="save">Save</button>
+      <button type="button" id="delete_button${ele.id}" value="Delete" class="delete">Delete</button>
     </td>
   </tr>
     `
@@ -44,7 +44,7 @@ const createNewRow = () => {
     <input type='date' id="enddate_row_add_input"  >
   </td>
   <td>
-  <input type="button" id="save_button_add" value="Save" class="save_add">
+  <button type="button" id="save_button_add" value="Save" class="save_add">Save</button>
 </td>
   `
   return tmp
@@ -62,7 +62,6 @@ const convertDay = (code) => {
   month = month.length < 2? '0'+month : month;
   day = day.length < 2? '0'+day : day;
 
-  console.log(year, month, day)
   return newdate = year + "-" + month + "-" + day;
 }
 export {
