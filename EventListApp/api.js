@@ -13,7 +13,7 @@ const addEvent = (events) =>
       "Content-type": "application/json",
       Accept: "application/json",
     },
-  }).then((response) => response.json());
+  }).then((response) => response.json())
 
 const deleteEvent = (id) =>
   fetch([baseurl, path, id].join("/"), {
@@ -24,7 +24,7 @@ const deleteEvent = (id) =>
     },
   }).then((response) => response.json())
 
-const updateEvent = (id, event) => {
+const updateEvent = (id, event) =>
   fetch([baseurl, path, id].join("/"), {
     method: "PUT",
     headers: {
@@ -33,8 +33,7 @@ const updateEvent = (id, event) => {
     },
     body: JSON.stringify(event),
   }).then((response) => response.json())
-  .then((json) => console.log(json));
-}
+
 
 
 export {

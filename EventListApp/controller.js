@@ -20,10 +20,14 @@ const addEventsfunc = () => {
         document.querySelector('#startdate_row_add_input').value,
         document.querySelector('#enddate_row_add_input').value
       )
+
+      // state.eventList = [ ...state.eventList, newEvent ];
+
+
       addEvent(newEvent)
       .then(newE => {
         console.log('task', newE);
-        state.eventList = [...state.eventList, newE ];
+        state.eventList = [ ...state.eventList, newE ];
       })
     })
 
@@ -51,7 +55,6 @@ const addEditFunc = () => {
       const parent = e.target.parentElement.parentElement;
 
       const id = parent.id.split('')[parent.id.length - 1];
-      console.log(id);
       const currentEventTd = document.querySelector(`#event_row${id}`);
       const currentStartTd = document.querySelector(`#startdate_row${id}`);
       const currentEndTd = document.querySelector(`#enddate_row${id}`);
@@ -72,9 +75,12 @@ const addEditFunc = () => {
           document.querySelector(`#startdate_text${id}`).value,
           document.querySelector(`#enddate_text${id}`).value
         )
-        updateEvent(id, newEvent).then(newE => {
-          state.eventList = [...state.eventList, newE];
+        updateEvent(id, newEvent).then(() => {
+          getEvents().then((data) => {
+            state.eventList = data;
+          })
         })
+
       })
     }
   })
