@@ -21,14 +21,8 @@ const addEventsfunc = () => {
         document.querySelector('#enddate_row_add_input').value
       )
 
-      // state.eventList = [ ...state.eventList, newEvent ];
-
-
       addEvent(newEvent)
-      .then(newE => {
-        console.log('task', newE);
-        state.eventList = [ ...state.eventList, newE ];
-      })
+        .then(newE => state.eventList = [...state.eventList, newE]);
     })
 
   })
@@ -38,11 +32,12 @@ const addEventsfunc = () => {
 const addDeleteFunc = () => {
   const ele = document.querySelector('#table-body');
   ele.addEventListener("click", (e) => {
+    const targetId = e.target.id.length - 1
     if (e.target.getAttribute('class') === 'delete') {
       state.eventList = state.eventList.filter((event) => {
-        return +event.id !== +e.target.id.split('')[(e.target.id.length) - 1];
+        return +event.id !== +e.target.id.split('')[targetId];
       });
-      deleteEvent(e.target.id.split('')[(e.target.id.length) - 1]);
+      deleteEvent(e.target.id.split('')[targetId]);
     }
   })
 }
@@ -75,18 +70,19 @@ const addEditFunc = () => {
           document.querySelector(`#startdate_text${id}`).value,
           document.querySelector(`#enddate_text${id}`).value
         )
-        updateEvent(id, newEvent).then(() => {
-          getEvents().then((data) => {
-            state.eventList = data;
+
+        updateEvent(id, newEvent)
+          .then(() => {
+            getEvents()
+              .then((data) => {
+                state.eventList = data;
+              })
           })
-        })
 
       })
     }
   })
 }
-
-
 
 const init = () => {
   getEvents().then((data) => {

@@ -61,8 +61,7 @@ const convertDay = (timeStamp) => {
   month = month.length < 2? '0'+month : month;
   day = day.length < 2? '0'+day : day;
 
-  return  year + "-" + month + "-" + day;
-  // YYYY-MM-DD
+  return  year + "-" + month + "-" + day; // YYYY-MM-DD
 }
 
 export {
