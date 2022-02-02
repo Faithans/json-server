@@ -14,21 +14,16 @@ const addEventsfunc = () => {
     // Add save function
     const saveBtn = document.querySelector('.save_add');
     saveBtn.addEventListener("click", (e) => {
-      alert("clicked")
-      // const newEvent = {
-      //   "eventName": document.querySelector('#event_row_add_input').value,
-      //   "startDate": document.querySelector('#startdate_row_add_input').value,
-      //   "endDate": document.querySelector('#enddate_row_add_input').value,
-      //   "id": state.datalog.length + 1,
-      // }
 
-      const newEvent = new Event(document.querySelector('#event_row_add_input').value,
+      const newEvent = new Event(
+        document.querySelector('#event_row_add_input').value,
         document.querySelector('#startdate_row_add_input').value,
         document.querySelector('#enddate_row_add_input').value
       )
-      addEvent(newEvent).then(newE => {
+      addEvent(newEvent)
+      .then(newE => {
         console.log('task', newE);
-        // state.eventList = [newE, ...state.eventList];
+        state.eventList = [newE, ...state.eventList];
       })
     })
 
@@ -40,10 +35,10 @@ const addDeleteFunc = () => {
   const ele = document.querySelector('#table-body');
   ele.addEventListener("click", (e) => {
     if (e.target.getAttribute('class') === 'delete') {
-      state.datalog = state.datalog.filter((event) => {
+      state.eventList = state.eventList.filter((event) => {
         return +event.id !== +e.target.id.split('')[(e.target.id.length) - 1];
       });
-      deleteEvents(e.target.id.split('')[(e.target.id.length) - 1]);
+      deleteEvent(e.target.id.split('')[(e.target.id.length) - 1]);
     }
   })
 }
@@ -71,14 +66,14 @@ const addEditFunc = () => {
 
       const saveBtn = document.querySelector(`#save_button${id}`);
       saveBtn.addEventListener("click", (e) => {
-        const newEvent = {
-          "eventName": document.querySelector(`#event_text${id}`).value,
-          "startDate": document.querySelector(`#startdate_text${id}`).value,
-          "endDate": document.querySelector(`#enddate_text${id}`).value,
-          "id": state.datalog.length + 1,
-        }
-        updateEvents(id, newEvent).then(newE => {
-          state.datalog = [newE, ...state.datalog];
+
+        const newEvent = new Event(
+          document.querySelector(`#event_text${id}`).value,
+          document.querySelector(`#startdate_text${id}`).value,
+          document.querySelector(`#enddate_text${id}`).value
+        )
+        updateEvent(id, newEvent).then(newE => {
+          state.eventList = [newE, ...state.eventList];
         })
       })
     }

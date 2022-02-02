@@ -18,9 +18,9 @@ const createAllEventListTmp = arr => {
     </td>
 
     <td>
-      <button type="button" id="edit_button${ele.id}" value="Edit" class="edit">Edit</button>
-      <button type="button" id="save_button${ele.id}" value="Save" class="save">Save</button>
-      <button type="button" id="delete_button${ele.id}" value="Delete" class="delete">Delete</button>
+      <button type="button" id="edit_button${ele.id}"  class="edit">Edit</button>
+      <button type="button" id="save_button${ele.id}"  class="save">Save</button>
+      <button type="button" id="delete_button${ele.id}"  class="delete">Delete</button>
     </td>
   </tr>
     `
@@ -44,7 +44,7 @@ const createNewRowTmp = () => {
     <input type='date' id="enddate_row_add_input"  >
   </td>
   <td>
-  <button type="button" id="save_button_add" value="Save" class="save_add">Save</button>
+  <button type="button" id="save_button_add"  class="save_add">Save</button>
 </td>
   `
   return tmp
