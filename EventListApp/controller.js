@@ -23,7 +23,7 @@ const addEventsfunc = () => {
       addEvent(newEvent)
       .then(newE => {
         console.log('task', newE);
-        state.eventList = [newE, ...state.eventList];
+        state.eventList = [...state.eventList, newE ];
       })
     })
 
@@ -73,7 +73,7 @@ const addEditFunc = () => {
           document.querySelector(`#enddate_text${id}`).value
         )
         updateEvent(id, newEvent).then(newE => {
-          state.eventList = [newE, ...state.eventList];
+          state.eventList = [...state.eventList, newE];
         })
       })
     }
