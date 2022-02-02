@@ -5,17 +5,17 @@ const getEvents = () =>
   fetch([baseurl, path].join("/")).then((response) => response.json());
 
 
-const addEvents = (events) =>
+const addEvent = (events) =>
   fetch([baseurl, path].join("/"), {
     method: "POST",
     body: JSON.stringify(events),
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
+      "Content-type": "application/json",
       Accept: "application/json",
     },
   }).then((response) => response.json());
 
-const deleteEvents = (id) =>
+const deleteEvent = (id) =>
   fetch([baseurl, path, id].join("/"), {
     method: "DELETE",
     headers: {
@@ -24,7 +24,7 @@ const deleteEvents = (id) =>
     },
   }).then((response) => response.json())
 
-const updateEvents = (id, event) => {
+const updateEvent = (id, event) => {
   fetch([baseurl, path, id].join("/"), {
     method: "PUT",
     headers: {
@@ -39,7 +39,7 @@ const updateEvents = (id, event) => {
 
 export {
   getEvents,
-  addEvents,
-  deleteEvents,
-  updateEvents
+  addEvent,
+  deleteEvent,
+  updateEvent
 }

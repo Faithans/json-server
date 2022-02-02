@@ -2,7 +2,7 @@ const render = (element, tmp) => {
   element.innerHTML = tmp;
 }
 
-const createTmp = arr => {
+const createAllEventListTmp = arr => {
   let tmp = '';
   arr.forEach((ele) => {
     tmp += `
@@ -30,7 +30,7 @@ const createTmp = arr => {
 }
 
 
-const createNewRow = () => {
+const createNewRowTmp = () => {
   let tmp = '';
   tmp += `
 
@@ -51,22 +51,23 @@ const createNewRow = () => {
 }
 
 
-const convertDay = (code) => {
-  let newdate;
+const convertDay = (timeStamp) => {
 
-  var dateObj = new Date(+code);
-  var month = dateObj.getUTCMonth() + 1; //months from 1-12
-  var day = dateObj.getUTCDate();
-  var year = dateObj.getUTCFullYear();
+  let dateObj = new Date(+timeStamp);
+  let month = dateObj.getUTCMonth() + 1; //months from 1-12
+  let day = dateObj.getUTCDate();
+  let year = dateObj.getUTCFullYear();
 
   month = month.length < 2? '0'+month : month;
   day = day.length < 2? '0'+day : day;
 
-  return newdate = year + "-" + month + "-" + day;
+  return  year + "-" + month + "-" + day;
+  // YYYY-MM-DD
 }
+
 export {
   render,
-  createTmp,
-  createNewRow,
+  createAllEventListTmp,
+  createNewRowTmp,
   convertDay
 }

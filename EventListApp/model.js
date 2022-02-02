@@ -1,4 +1,4 @@
-import {render, createTmp, convertDay} from './view.js';
+import {render, createAllEventListTmp, convertDay} from './view.js';
 
 class Event {
   constructor(eventName, startDate, endDate) {
@@ -9,21 +9,21 @@ class Event {
 }
 
 class State {
-  log = [];
+  _eventList = [];
 
-  get datalog() {
-    return this.log;
+  get eventList() {
+    return this._eventList;
   }
 
-  set datalog(newdata) {
+  set eventList(newdata) {
     newdata.forEach(obj => {
       obj.startDate = obj.startDate.length > 10? convertDay(obj.startDate) : obj.startDate;
       obj.endDate = obj.endDate.length > 10? convertDay(obj.endDate) : obj.endDate;
     })
-    this.log = newdata;
+    this._eventList = newdata;
 
     const ele = document.querySelector('#table-body');
-    const tmp = createTmp(this.log);
+    const tmp = createAllEventListTmp(this._eventList);
     render(ele, tmp);
   }
 }

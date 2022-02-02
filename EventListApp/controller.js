@@ -1,29 +1,34 @@
 import { State, Event } from './model.js';
-import { render, createTmp, createNewRow } from './view.js';
-import { getEvents, addEvents, deleteEvents, updateEvents } from './api.js';
+import { render, createAllEventListTmp, createNewRowTmp } from './view.js';
+import { getEvents, addEvent, deleteEvent, updateEvent } from './api.js';
 
 const state = new State();
 
 const addEventsfunc = () => {
-  const addRow = document.querySelector('#row_add');
   const addBtn = document.querySelector('.addBtn');
   addBtn.addEventListener("click", (e) => {
-    const newRow = createNewRow();
-    var tr = document.createElement('tr');
+    const newRow = createNewRowTmp();
+    let tr = document.createElement('tr');
     tr.innerHTML = newRow;
     document.getElementById('table-body').appendChild(tr);
     // Add save function
     const saveBtn = document.querySelector('.save_add');
     saveBtn.addEventListener("click", (e) => {
-      const saveBtn = document.querySelector('.save_add');
-      const newEvent = {
-        "eventName": document.querySelector('#event_row_add_input').value,
-        "startDate": document.querySelector('#startdate_row_add_input').value,
-        "endDate": document.querySelector('#enddate_row_add_input').value,
-        "id": state.datalog.length + 1,
-      }
-      addEvents(newEvent).then(newE => {
-        state.datalog = [newE, ...state.datalog];
+      alert("clicked")
+      // const newEvent = {
+      //   "eventName": document.querySelector('#event_row_add_input').value,
+      //   "startDate": document.querySelector('#startdate_row_add_input').value,
+      //   "endDate": document.querySelector('#enddate_row_add_input').value,
+      //   "id": state.datalog.length + 1,
+      // }
+
+      const newEvent = new Event(document.querySelector('#event_row_add_input').value,
+        document.querySelector('#startdate_row_add_input').value,
+        document.querySelector('#enddate_row_add_input').value
+      )
+      addEvent(newEvent).then(newE => {
+        console.log('task', newE);
+        // state.eventList = [newE, ...state.eventList];
       })
     })
 
@@ -84,7 +89,7 @@ const addEditFunc = () => {
 
 const init = () => {
   getEvents().then((data) => {
-    state.datalog = data;
+    state.eventList = data;
   })
 }
 
